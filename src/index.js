@@ -12,11 +12,6 @@ app.get('/', function (req, res) {
     res.send('Hello Word')
 })
 
-app.post('/', function (req, res) {
-
-    res.json()
-})
-
 app.use(router)
 app.listen(3000, function () {
     console.log('Server Running')
