@@ -7,7 +7,8 @@ const recipeSchema = new mongoose.Schema({
         name: String,
         price: Number
     }],
-    steps: [String]
+    steps: [String],
+    price: Number
 })
 
 module.exports = mongoose.model('Recipe', recipeSchema)
