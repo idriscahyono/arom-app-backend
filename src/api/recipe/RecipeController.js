@@ -20,13 +20,11 @@ module.exports = {
     },
 
     update: function (req, res) {
-        ModelRecipe.findOneAndUpdate({
-            _id: req.params.id
-        }, {
-            $set: req.body
-        }, {
-            new: true
-        }).then(function (row) {
+        ModelRecipe.findByIdAndUpdate(
+            req.params.id,
+            req.body, {
+                new: true
+            }).then(function (row) {
             res.send(row)
         })
     },
@@ -36,6 +34,16 @@ module.exports = {
             _id: req.params.id
         }).then(function (row) {
             res.send(show)
+        })
+    },
+
+    upload: function (req, res) {
+        ModelRecipe.findByIdAndUpdate(req.params.id, {
+            image_url: req.file.url
+        }, {
+            new: true
+        }).then(function (row) {
+            res.send(row)
         })
     }
 }
