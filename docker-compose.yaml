@@ -1,0 +1,9 @@
+version: "3.7"
+services:
+  arom-app:
+    build: .
+    container_name: arom-app-container
+    ports:
+      - 3000:3000
+    volumes:
+      - .:/app
